@@ -87,7 +87,7 @@ const displayDetails = item =>{
                     <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
                     <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
                     <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
-                    <p class="card-text">Sensors: ${item.mainFeatures.sensors}</p>
+                    <p class="card-text text-break">Sensors: ${item.mainFeatures.sensors}</p>
                     <h4>Others</h4>
                     <p class="card-text">Bluetooth: ${item.others.Bluetooth}</p>
                     <p class="card-text">GPS: ${item.others.GPS}</p>
