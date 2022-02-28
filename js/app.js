@@ -38,10 +38,12 @@ const displayData = (phones) =>{
 // again loading data from api for details button
 
 const getDetails = phoneId =>{
+    // console.log(phoneId);
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
     fetch(url)
     .then(res => res.json())
-    .then(data => displayDetails(data.data))
+    .then(data =>displayDetails(data.data))
+    // console.log(data);
     // console.log(phoneId)
 }
 
@@ -50,7 +52,7 @@ const getDetails = phoneId =>{
 const displayDetails = item =>{
     const detailsSection = document.getElementById('details')
     // const getSensors =()=>{
-        const sensors = item.mainFeatures.sensors
+        // const sensors = 
         // console.log(...sensors);
         
         
@@ -64,25 +66,38 @@ const displayDetails = item =>{
     
     // const result = getSensors()
     // console.log(result);
+    console.log(item.others);
+    console.log(item.others.Bluetooth);
     
     
-
+    //    <div class="card mb-3"></div>
+    // </div>
     
     // const div = document.createElement('div')
     detailsSection.innerHTML = `
-        <div class="card mb-3">
-            <img src="${item.image}" class="card-img-top w-50 h-50" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${item.name}</h5>
-            <h2>Main Features</h2>
-            <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
-            <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
-            <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
-            <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
-            <p class="card-text">Sensors: ${sensors}</p>
-
-        </div>  
-        </div>
+        
+            <div class="row">
+                <div class="col-md-6">
+                <img src="${item.image}" class="card-img-top img-fluid" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <h5 class="card-title">${item.name}</h5>
+                    <h2>Main Features</h2>
+                    <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
+                    <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
+                    <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
+                    <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
+                    <p class="card-text">Sensors: ${item.mainFeatures.sensors}</p>
+                    <h4>Others</h4>
+                    <p class="card-text">Bluetooth: ${item.others.Bluetooth}</p>
+                    <p class="card-text">GPS: ${item.others.GPS}</p>
+                    <p class="card-text">NFC: ${item.others.NFC}</p>
+                    <p class="card-text">Radio: ${item.others.Radio}</p>
+                    <p class="card-text">USB: ${item.others.USB}</p>
+                    <p class="card-text">WLAN: ${item.others.WLAN}</p>
+        
+                </div>  
+           
                
     `
     // console.log(item.mainFeatures.sensors);
