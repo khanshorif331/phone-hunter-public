@@ -48,7 +48,23 @@ const getDetails = phoneId =>{
 // showing details data on the ui
 
 const displayDetails = item =>{
-    console.log(item);
+    const detailsSection = document.getElementById('details')
+    // const div = document.createElement('div')
+    detailsSection.innerHTML = `
+        <div class="card mb-3">
+            <img src="${item.image}" class="card-img-top w-50 h-50" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <h2>Main Features</h2>
+            <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
+            <p class="card-text">Display Size: ${item.mainFeatures.displaySize}</p>
+            <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
+            <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
+        </div>  
+        </div>
+               
+    `
+    console.log(item.mainFeatures);
 }
 
 
