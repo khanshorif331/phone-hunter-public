@@ -49,6 +49,25 @@ const getDetails = phoneId =>{
 
 const displayDetails = item =>{
     const detailsSection = document.getElementById('details')
+    // const getSensors =()=>{
+        const sensors = item.mainFeatures.sensors
+        // console.log(...sensors);
+        
+        
+        // const sensorData =[] 
+        // for(const sensor of sensors){
+        // // console.log(sensor);
+        //     sensorData.push(sensor)
+        // }
+        // console.log(...sensorData);
+    // }
+    
+    // const result = getSensors()
+    // console.log(result);
+    
+    
+
+    
     // const div = document.createElement('div')
     detailsSection.innerHTML = `
         <div class="card mb-3">
@@ -57,14 +76,16 @@ const displayDetails = item =>{
             <h5 class="card-title">${item.name}</h5>
             <h2>Main Features</h2>
             <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
-            <p class="card-text">Display Size: ${item.mainFeatures.displaySize}</p>
+            <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
             <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
             <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
+            <p class="card-text">Sensors: ${sensors}</p>
+
         </div>  
         </div>
                
     `
-    console.log(item.mainFeatures);
+    // console.log(item.mainFeatures.sensors);
 }
 
 
