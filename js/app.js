@@ -13,7 +13,7 @@ const loadData = ()=>{
 // display data 
 
 const displayData = (phones) =>{
-    // console.log(phones.length) 
+    console.log(phones.length) 
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML =''
     phones.forEach(phone=> {       
