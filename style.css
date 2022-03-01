@@ -1,3 +1,13 @@
 h1 {
   color: red;
 }
+#error-text {
+  display: none;
+}
+
+#ul {
+  list-style: none;
+}
+#container {
+  border-radius: 3rem;
+}

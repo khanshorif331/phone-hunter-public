@@ -15,10 +15,11 @@
         <!-- input section -->
         <section>
             <h1 class="text-center">Find Desired Phones</h1>
-        <div class="input-group mb-3">
-        <input id="input-field" type="text" class="form-control" placeholder="Search Your Desired Phone here" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group mb-3 w-75 mx-auto">
+        <input id="input-field" type="text" class="form-control" placeholder="Search Phones Here" aria-label="Recipient's username" aria-describedby="button-addon2">
         <button onclick="loadData()" class="btn btn-outline-secondary" type="button" id="input-button">Search</button>
         </div>
+        <p id="error-text" class="text-center bg-danger text-white w-75 mx-auto">No Search Result Found.Plz Enter A Different Name..!!!</p>
         </section>
 
         <!-- details section -->
@@ -33,6 +34,15 @@
         </section>
 
     </main>
+
+    <!-- <ul>
+                    <p class="card-text">Bluetooth: ${item?.others?.Bluetooth}</p>
+                    <p class="card-text">GPS: ${item?.others?.GPS}</p>
+                    <p class="card-text">NFC: ${item?.others?.NFC}</p>
+                    <p class="card-text">Radio: ${item?.others?.Radio}</p>
+                    <p class="card-text">USB: ${item?.others?.USB}</p>
+                    <p class="card-text">WLAN: ${item?.others?.WLAN}</p>
+    </ul> -->
     
       
 

@@ -6,14 +6,26 @@ const loadData = ()=>{
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
     .then(res => res.json())
-    .then(data => displayData(data.data))
+    .then(data => displayData(data.data.slice(0,20)))
     input.value = ''
 }
 
 // display data 
 
 const displayData = (phones) =>{
-    console.log(phones.length) 
+    // console.log(phones.length);
+    // error message
+    if(phones.length == 0){
+        document.getElementById('error-text').style.display='block'
+    }
+    else{
+        document.getElementById('error-text').style.display='none'
+    }
+    // hiding details section on every search
+    const detailsSection = document.getElementById('details')
+    detailsSection.innerHTML = '' 
+    
+    // setting innerhtml of card container
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML =''
     phones.forEach(phone=> {       
@@ -28,8 +40,7 @@ const displayData = (phones) =>{
                     </div>
                     <button onclick="getDetails('${phone.slug}')" id="details-button" class="btn btn-outline-success">See Details</button>
                 </div>
-        `
-// console.log(phone.slug);    
+        `   
         cardContainer.appendChild(div)        
     })   
 }
@@ -51,55 +62,50 @@ const getDetails = phoneId =>{
 
 const displayDetails = item =>{
     const detailsSection = document.getElementById('details')
-    // const getSensors =()=>{
-        // const sensors = 
-        // console.log(...sensors);
-        
-        
-        // const sensorData =[] 
-        // for(const sensor of sensors){
-        // // console.log(sensor);
-        //     sensorData.push(sensor)
-        // }
-        // console.log(...sensorData);
-    // }
+    const otherInfo = item.others
+    const releaseInfo = item.releaseDate
     
-    // const result = getSensors()
-    // console.log(result);
-    console.log(item.others);
-    console.log(item.others.Bluetooth);
-    
-    
-    //    <div class="card mb-3"></div>
-    // </div>
-    
-    // const div = document.createElement('div')
-    detailsSection.innerHTML = `
-        
+    detailsSection.innerHTML = `       
             <div class="row">
                 <div class="col-md-6">
-                <img src="${item.image}" class="card-img-top img-fluid" alt="...">
+                    <img src="${item.image}" class="card-img-top img-fluid" alt="...">
+                    <h1 id="release-date" class="text-center">${item.releaseDate}</h1>
                 </div>
-                <div class="col-md-6">
-                    <h5 class="card-title">${item.name}</h5>
-                    <h2>Main Features</h2>
-                    <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
-                    <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
-                    <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
-                    <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
-                    <p class="card-text text-break">Sensors: ${item.mainFeatures.sensors}</p>
-                    <h4>Others</h4>
-                    <p class="card-text">Bluetooth: ${item.others.Bluetooth}</p>
-                    <p class="card-text">GPS: ${item.others.GPS}</p>
-                    <p class="card-text">NFC: ${item.others.NFC}</p>
-                    <p class="card-text">Radio: ${item.others.Radio}</p>
-                    <p class="card-text">USB: ${item.others.USB}</p>
-                    <p class="card-text">WLAN: ${item.others.WLAN}</p>
-        
-                </div>  
-           
-               
-    `
+                <div id="container" class="col-md-6 text-center border">
+                    <div class="py-5 ">
+                        <h5 class="card-title">${item.name}</h5>
+                        <h2>Main Features</h2>
+                        <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
+                        <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
+                        <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
+                        <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
+                        <p class="card-text text-break">Sensors: ${item.mainFeatures.sensors}</p>
+                    
+                    <div id="ul">
+                        <h4>Others</h4>
+                        <p>Bluetooth: ${item?.others?.Bluetooth}</p>
+                        <p>GPS: ${item?.others?.GPS}</p>
+                        <p>NFC: ${item?.others?.NFC}</p>
+                        <p>Radio: ${item?.others?.Radio}</p>
+                        <p>USB: ${item?.others?.USB}</p>
+                        <p>WLAN: ${item?.others?.WLAN}</p>
+                    </div>
+                    </div>                            
+                </div>               
+            `
+    if(otherInfo == undefined){
+        const ul = document.getElementById('ul')
+        ul.innerHTML =''
+        console.log(ul);
+    }
+    if(releaseInfo == ''){
+        const releaseText = document.getElementById('release-date')
+        releaseText.innerText = 'No realese date found.!!'
+    }
+
+
+
+    // console.log(item.others);
     // console.log(item.mainFeatures.sensors);
 }
 
