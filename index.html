@@ -10,22 +10,38 @@
     <!-- css files here -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body>  
+     <!--main part  -->
     <main class="container">
         <!-- input section -->
         <section>
-            <h1 class="text-center">Find Desired Phones</h1>
-        <div class="input-group mb-3 w-75 mx-auto">
-        <input id="input-field" type="text" class="form-control" placeholder="Search Phones Here" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="loadData()" class="btn btn-outline-secondary" type="button" id="input-button">Search</button>
-        </div>
-        <p id="error-text" class="text-center bg-danger text-white w-75 mx-auto">No Search Result Found.Plz Enter A Different Name..!!!</p>
+            <h1 class="text-center w-50 mx-auto my-3">Find Desired Phones</h1>
+            <div class="input-group mb-3 w-75 mx-auto">
+                <input id="input-field" type="text" class="form-control" placeholder="Search Phones Here" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button onclick="loadData()" class="btn btn-outline-secondary" type="button" id="input-button">Search</button>
+            </div>
+        <!-- spinner -->
+            <div id="spinner" class="text-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+        <!-- error text -->
+            <p id="error-text" class="text-center bg-danger text-white w-50 mx-auto">No Search Result Found.Plz Enter A Different Name..!!!</p>     
         </section>
+        <!-- input section ends here -->
+        
+
 
         <!-- details section -->
         <section id="details" class="container my-5">
 
         </section>
+        <!-- details section ends here -->
+
+
+
 
         <!-- search result section -->
         <section class="container">
@@ -34,17 +50,7 @@
         </section>
 
     </main>
-
-    <!-- <ul>
-                    <p class="card-text">Bluetooth: ${item?.others?.Bluetooth}</p>
-                    <p class="card-text">GPS: ${item?.others?.GPS}</p>
-                    <p class="card-text">NFC: ${item?.others?.NFC}</p>
-                    <p class="card-text">Radio: ${item?.others?.Radio}</p>
-                    <p class="card-text">USB: ${item?.others?.USB}</p>
-                    <p class="card-text">WLAN: ${item?.others?.WLAN}</p>
-    </ul> -->
     
-      
 
     <!-- js file links here -->
     <script src="js/app.js"></script>

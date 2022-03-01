@@ -1,8 +1,12 @@
 // loading data from the api 
 const loadData = ()=>{
+    // handling spinner
+    document.getElementById('spinner').style.display='block'
+
+    // calling the api for data
     const input = document.getElementById('input-field')
     const inputValue = input.value
-    // console.log(inputValue);
+    
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
     .then(res => res.json())
@@ -10,10 +14,13 @@ const loadData = ()=>{
     input.value = ''
 }
 
+
 // display data 
 
 const displayData = (phones) =>{
-    // console.log(phones.length);
+    // handling spinner
+    document.getElementById('spinner').style.display='none'  
+    
     // error message
     if(phones.length == 0){
         document.getElementById('error-text').style.display='block'
@@ -21,6 +28,8 @@ const displayData = (phones) =>{
     else{
         document.getElementById('error-text').style.display='none'
     }
+
+
     // hiding details section on every search
     const detailsSection = document.getElementById('details')
     detailsSection.innerHTML = '' 
@@ -49,19 +58,19 @@ const displayData = (phones) =>{
 // again loading data from api for details button
 
 const getDetails = phoneId =>{
-    // console.log(phoneId);
     const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
     fetch(url)
     .then(res => res.json())
     .then(data =>displayDetails(data.data))
-    // console.log(data);
-    // console.log(phoneId)
 }
+
 
 // showing details data on the ui
 
 const displayDetails = item =>{
     const detailsSection = document.getElementById('details')
+
+
     const otherInfo = item.others
     const releaseInfo = item.releaseDate
     
@@ -69,7 +78,7 @@ const displayDetails = item =>{
             <div class="row">
                 <div class="col-md-6">
                     <img src="${item.image}" class="card-img-top img-fluid" alt="...">
-                    <h1 id="release-date" class="text-center">${item.releaseDate}</h1>
+                    <h1 id="release-date" class="text-center bg-danger text-white p-1">${item.releaseDate}</h1>
                 </div>
                 <div id="container" class="col-md-6 text-center border">
                     <div class="py-5 ">
@@ -93,20 +102,19 @@ const displayDetails = item =>{
                     </div>                            
                 </div>               
             `
-    if(otherInfo == undefined){
-        const ul = document.getElementById('ul')
-        ul.innerHTML =''
-        console.log(ul);
-    }
-    if(releaseInfo == ''){
-        const releaseText = document.getElementById('release-date')
-        releaseText.innerText = 'No realese date found.!!'
-    }
 
-
-
-    // console.log(item.others);
-    // console.log(item.mainFeatures.sensors);
+     
+            // conditions for otherinfo and release info
+            
+            if(otherInfo == undefined){
+                const ul = document.getElementById('ul')
+                ul.innerHTML =''
+                console.log(ul);
+            }
+            if(releaseInfo == ''){
+                const releaseText = document.getElementById('release-date')
+                releaseText.innerText = 'No realese date found.!!'
+            }
 }
 
 
