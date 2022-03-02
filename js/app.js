@@ -47,7 +47,7 @@ const displayData = (phones) =>{
                       <h5 class="card-title">${phone.phone_name}</h5>
                       <p class="card-text">${phone.brand}</p>
                     </div>
-                    <button onclick="getDetails('${phone.slug}')" id="details-button" class="btn btn-outline-success">See Details</button>
+                    <button onclick="getDetails('${phone.slug}')" id="details-button" class="btn btn-outline-dark">See Details</button>
                 </div>
         `   
         cardContainer.appendChild(div)        
@@ -78,16 +78,16 @@ const displayDetails = item =>{
             <div class="row">
                 <div class="col-md-6">
                     <img src="${item.image}" class="card-img-top img-fluid" alt="...">
-                    <h1 id="release-date" class="text-center bg-danger text-white p-1">${item.releaseDate}</h1>
+                    <h1 id="release-date" class="text-center  text-white p-1">${item.releaseDate}</h1>
                 </div>
                 <div id="container" class="col-md-6 text-center border">
                     <div class="py-5 ">
                         <h5 class="card-title">${item.name}</h5>
                         <h2>Main Features</h2>
-                        <p class="card-text">Chipset: ${item.mainFeatures.chipSet}</p>
-                        <p class="card-text">Display-Size: ${item.mainFeatures.displaySize}</p>
-                        <p class="card-text">Memory: ${item.mainFeatures.memory}</p>
-                        <p class="card-text">Storage: ${item.mainFeatures.storage}</p>
+                        <p>Chipset: ${item.mainFeatures.chipSet}</p>
+                        <p>Display-Size: ${item.mainFeatures.displaySize}</p>
+                        <p>Memory: ${item.mainFeatures.memory}</p>
+                        <p>Storage: ${item.mainFeatures.storage}</p>
                         <p class="card-text text-break">Sensors: ${item.mainFeatures.sensors}</p>
                     
                     <div id="ul">
@@ -109,7 +109,6 @@ const displayDetails = item =>{
             if(otherInfo == undefined){
                 const ul = document.getElementById('ul')
                 ul.innerHTML =''
-                console.log(ul);
             }
             if(releaseInfo == ''){
                 const releaseText = document.getElementById('release-date')

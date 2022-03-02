@@ -1,11 +1,14 @@
 h1 {
-  background-color: cyan;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.801);
 }
 #spinner {
   display: none;
 }
 #error-text {
   display: none;
+  background-color: rgba(207, 19, 19, 0.719);
+  color: aliceblue;
 }
 
 #ul {
@@ -13,4 +16,11 @@ h1 {
 }
 #container {
   border-radius: 3rem;
+}
+body {
+  background-color: rgb(0, 114, 134);
+  color: black;
+}
+#release-date {
+  background-color: black;
 }
